@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iman dan Ilmu - Azzahra Hendar Asafira</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: #cbd5e1; 
+            background-color: #0f172a; 
+            line-height: 1.7;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #0d47a1, #1e40af); 
+            padding: 18px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(13, 71, 161, 0.12);
+        }
+
+        .logo {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: 0.5px;
+        }
+
+        nav a {
+            color: #ffffff !important;
+            text-decoration: none !important;
+            margin-left: 22px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            padding: 4px 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #60a5fa !important;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #60a5fa; 
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        section {
+            padding: 120px 10% 100px 10%;
+            min-height: 65vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        section, footer {
+            scroll-margin-top: 75px;
+        }
+
+        #home {
+            background: linear-gradient(180deg, rgba(30, 64, 175, 0.2) 0%, #0f172a 100%);
+            text-align: center;
+            padding-top: 180px;
+        }
+
+        #home h1 {
+            font-size: 2.8rem;
+            color: #60a5fa; 
+            margin-bottom: 5px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        #home h1 + h1 {
+            font-size: 2.2rem;
+            color: #93c5fd; 
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.15rem;
+            color: #cbd5e1; 
+            max-width: 850px;
+            margin: 0 auto 35px auto;
+            padding: 25px 30px;
+            border-left: 6px solid #3b82f6; 
+            background-color: #1e293b; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .hero-text {
+            max-width: 850px;
+            margin: 0 auto;
+            color: #94a3b8; 
+            font-size: 1.1rem;
+        }
+
+        #pengertian h2, #hubungan h2, #tanggung-jawab h2, #kesimpulan h2, #referensi h2 {
+            text-align: center;
+            color: #ffffff; 
+            margin-bottom: 50px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 5px solid #0d47a1; 
+            text-align: justify;
+            transition: all 0.3s ease;
+            color: #cbd5e1;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(13, 71, 161, 0.25);
+            background: #24334d;
+        }
+
+        .card h3 {
+            margin-bottom: 18px;
+            color: #60a5fa; 
+            font-size: 1.4rem;
+            text-align: left;
+        }
+
+        #pengertian .card {
+            background-color: #1e293b;
+            border-top: 5px solid #10b981;
+            color: #cbd5e1;
+        }
+        #pengertian .card h3 {
+            color: #60a5fa;
+        }
+
+        .list-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .list-item {
+            background-color: #1e293b; 
+            color: #cbd5e1;           
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3b82f6; 
+            text-align: justify;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .list-item:hover {
+            transform: translateX(8px);
+            background-color: #24334d;
+            box-shadow: 0 8px 25px rgba(13, 71, 161, 0.2);
+        }
+
+        .list-item h3 {
+            color: #60a5fa; 
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            text-align: left;
+        }
+
+        #kesimpulan {
+            min-height: 45vh;
+        }
+
+        .ref-list li {
+            background-color: #1e293b; 
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid #10b981; 
+            font-size: 1rem;
+            color: #cbd5e1;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #0f172a; 
+            color: #ffffff;
+            padding: 80px 10% 40px 10%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            border-top: 1px solid #1e293b;
+            padding-top: 30px;
+            font-size: 0.85rem;
+            color: #64748b;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 15px; }
+            nav { margin-top: 15px; }
+            nav a { margin: 0 10px; font-size: 0.8rem; }
+            #home h1 { font-size: 2rem; }
+            #home h1 + h1 { font-size: 1.6rem; }
+            .grid-container { grid-template-columns: 1fr; }
+            .list-item:hover { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Islamic Insight</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#pengertian">Pengertian</a>
+            <a href="#hubungan">Timbal Balik</a>
+            <a href="#tanggung-jawab">Tanggung Jawab</a>
+            <a href="#kesimpulan">Kesimpulan</a>
+            <a href="#referensi">Referensi</a>
+            <a href="#identitas">Identitas</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h1>Iman dan Ilmu</h1>
+        <h1>Dua Pilar Utama Peradaban Islam</h1>
+
+        <p class="hero-text">
+            Keselarasan hidup yang hakiki dapat tercapai ketika kita mampu menyeimbangkan pencapaian intelektual dengan penguatan spiritual. Melalui ilmu kita berkembang, dan melalui iman kita terarah.
+        </p>
+    </section>
+
+    <section id="pengertian">
+        <h2>Apa Itu Iman dan Ilmu?</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Iman (Spiritualitas)</h3>
+                <p>Iman bukan sekadar keyakinan pribadi, melainkan dasar etika yang mengarahkan perilaku manusia. Dalam praktiknya, iman berfungsi sebagai kontrol moral agar setiap keputusan dan kemajuan yang kita capai tetap membawa manfaat dan tidak merugikan orang lain.</p>
+            </div>
+            <div class="card">
+                <h3>Ilmu (Intelektualitas)</h3>
+                <p>Di sisi lain, Ilmu adalah instrumen berpikir logis yang diperoleh melalui proses belajar dan pembuktian tujuan. Dengan ilmu, manusia memiliki metodologi untuk menyelesaikan berbagai masalah nyata sekaligus menciptakan inovasi yang mempermudah hidup.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hubungan">
+        <h2>Bagaimana Keduanya Saling Melengkapi?</h2>
+        <div class="list-container">
+            <div class="list-item">
+                <h3>1. Iman Sebagai Pengendali Ilmu</h3>
+                <p>Wawasan ilmiah yang luas dapat bertransformasi menjadi kekuatan yang destruktif tanpa adanya kendali moral. Contoh nyatanya terlihat pada penyalahgunaan teknologi untuk menciptakan senjata pemusnah massal.</p>
+            </div>
+            <div class="list-item">
+                <h3>2. Ilmu Sebagai Penerang Iman</h3>
+                <p>Sementara itu, keyakinan tanpa landasan ilmu berisiko menjebak seseorang dalam kefanatikan atau pemahaman yang keliru. Ilmu hadir memberikan pencerahan agar kita dapat beragama secara logis, sehat, dan bijaksana.</p>
+            </div>
+            <div class="list-item">
+                <h3>3. Jejak Integrasi Sains dan Agama</h3>
+                <p>Sejarah mencatat bahwa tradisi intelektual Islam tidak memisahkan penelitian alam dengan pemahaman keagamaan. Ilmuwan besar seperti Ibnu Sina atau Al-Khwarizmi terdorong melakukan penelitian justru karena keimanan mereka untuk mendalami cara kerja alam semesta.</p>
+            </div>
+            <div class="list-item">
+                <h3>4. Ikhtiar Membentuk Karakter Ulul Albab</h3>
+                <p>Gabungan antara aspek intelektual dan spiritual ini membentuk profil individu yang seimbang. Karakter ini dipengaruhi oleh kemampuan berpikir kritis dan analitis dalam urusan duniawi, namun tetap memiliki integritas moral yang kuat.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tanggung-jawab">
+        <h2>Tanggung Jawab Terhadap Lingkungan</h2>
+        <div class="list-container">
+            <div class="list-item" style="background-color: #1e293b; border-left-color: #cbd5e1; margin-bottom: 0;">
+                <h3 style="color: #60a5fa;">Manusia, Ekosistem, dan Fiqh Al-Bi'ah</h3>
+                <p>Manusia sebagai makhluk hidup senantiasa berinteraksi dengan lingkungan tempat hidupnya. Ketika terjadi perubahan pada sifat lingkungan hidup yang berada di luar batas kemampuan adaptasi manusia, baik perubahan secara alamiah maupun perubahan yang disebabkan oleh aktivitas hidupnya, kelangsungan hidup akan terancam.</p>
+                <br>
+                <p>Permasalahan dan perubahan lingkungan yang sekarang dihadapi manusia secara umum disebabkan oleh dua hal. Pertama, karena kejadian alam bersifat alami yang terjadi karena proses alam itu sendiri. Kedua, sebagai akibat dari perbuatan manusia yang melakukan intervensi terhadap alam melalui pembangunan yang tidak direncanakan secara bijak. Dalam usaha menjaga kelestarian lingkungan di Indonesia, Islam mempunyai formula konseptual dalam fokus kajian isu-isu lingkungan hidup yang dikenal dengan <b>Fiqh al-bi'ah</b> (Etika Lingkungan).</p>
+                
+                <div style="background-color: #0f172a; padding: 25px; border-radius: 8px; margin-top: 25px; border-right: 4px solid #10b981;">
+                    <p style="font-size: 1rem; color: #60a5fa; margin-bottom: 12px; font-weight: 500; text-align: left;">
+                        Dalam QS. Al-A’raf ayat 56 menjelaskan tentang kerusakan yang dilakukan di muka bumi:
+                    </p> 
+                    <p style="font-size: 1.7rem; font-family: 'Times New Roman', serif; color: #ffffff; line-height: 2.2; text-align: right; margin-bottom: 15px;" dir="rtl" lang="ar">
+                        وَلَا تُفْسِدُوا فِي الْأَرْضِ بَعْدَ إِصْلَاحِهَا وَادْعُوهُ خَوْفًا وَطَمَعًا ۚ إِنَّ رَحْمَتَ اللَّهِ قَرِيبٌ مِنَ الْمُحْسِنِينَ ٥٦
+                    </p>
+                    <p style="font-style: italic; font-size: 0.95rem; color: #94a3b8; text-align: justify; line-height: 1.6;">
+                        <b>Artinya:</b> "Dan janganlah kamu membuat kerusakan di muka bumi, sesudah (Allah) memperbaikinya dan berdoalah kepada-Nya dengan rasa takut (tidak akan diterima) dan harapan (akan dikabulkan). Sesungguhnya rahmat Allah amat dekat kepada orang-orang yang berbuat baik." <b>(QS. Al-A'raf: 56)</b>
+                    </p>
+                </div>
+            </div> </div>
+    </section>
+
+    </section>
+    <section id="kesimpulan">
+    <div class="list-container" style="max-width: 850px;">
+        <h2>Kesimpulan</h2>
+        <p style="font-size: 1.15rem; color: #cbd5e1; line-height: 1.8; text-align: justify;">
+            Secara komprehensif, Iman dan ilmu adalah dua pilar yang tidak dapat dipisahkan dalam membangun peradaban Islam yang madani. Ilmu memberikan kapabilitas intelektual untuk mengelola dunia, sedangkan iman hadir sebagai kompas moral agar kemajuan teknologi tidak berujung pada kerusakan. 
+        </p>
+        <br>
+        <p style="font-size: 1.15rem; color: #cbd5e1; line-height: 1.8; text-align: justify;">
+            Sinergi utuh dari kedua aspek ini melahirkan karakter <i>Ulul Albab</i> yang sadar akan tanggung jawabnya sebagai khalifah. Dalam konteks modern, kesadaran ini diimplementasikan melalui penerapan <b>Fiqh al-bi'ah</b>—sebuah komitmen spiritual dan ilmiah untuk menjaga keseimbangan ekosistem dan melestarikan lingkungan bumi dari kehancuran akibat egoisme manusia.
+        </p>
+    </div>
+</section>
+
+    <section id="referensi">
+        <div class="list-container" style="max-width: 850px;">
+            <h2>Referensi</h2>
+            <ul class="ref-list">
+                <li>Abidin, M. Z. (2011). Konsep Ilmu Dalam Islam: Tinjauan Terhadap Makna, Hakikat, Dan Sumber-Sumber Ilmu Dalam Islam. <i>Jurnal Ilmu Ushuluddin</i>, 10(1), 73-87.</li>
+                <li>Firmansyah, M. I. (2019). Eksistensi Ilmu Pengetahuan dalam Islam. <i>Jurnal Kajian Peradaban Islam</i>, 2(1), 12-18.</li>
+                <li>Istiani, M., & Purwanto, M. R. (2019). Fiqh al-bi'ah dalam perspektif Al-Qur'an. <i>At-Thullab: Jurnal Mahasiswa Studi Islam</i>, 1(1), 24-39.</li>
+                <li>Mu'izzuddin, M. (2021). Implementasi Fiqh Al-Bi’ah dalam Membangun Kesadaran Lingkungan Generasi Muda Muslim. <i>Jurnal Edukasi Islami: Jurnal Pendidikan Islam</i>, 10(02), 541-554.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer id="identitas">
+        <div class="list-container" style="margin-bottom: 50px; max-width: 600px;">
+            <div class="card" style="border-top: 5px solid #10b981; background: #1e293b; color: #ffffff; text-align: left; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                <h3 style="color: #60a5fa; margin-bottom: 15px; font-size: 1.3rem; font-weight: 600;">Identitas Mahasiswa</h3>
+                <p style="margin-bottom: 8px; font-size: 0.95rem; color: #cbd5e1;">Azzahra Hendar Asafira</p>
+                <p style="margin-bottom: 8px; font-size: 0.95rem; color: #cbd5e1;">K3525081</p>
+                <p style="font-size: 0.95rem; color: #cbd5e1;">Pendidikan Teknik Informatika dan Komputer</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div style="display: block; color: #64748b;">Tugas UAS Pendidikan Agama Islam </div>
+        </div>
+    </footer>
