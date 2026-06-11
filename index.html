@@ -367,8 +367,14 @@
         </div>
 
         <div class="copyright">
-            <div style="display: block; color: #64748b;"> 2026 Hubungan antara Iman dan Ilmu dalam Islam</div>
-        </div>
+            <div style="display: block; color: #64748b;"> 
+                &copy; <span id="tahun"></span>Hubungan antara Iman dan Ilmu dalam Islam
+                </div>
+            </div>
     </footer>
+    
+    <script>
+        document.getElementById("tahun").innerHTML = new Date().getFullYear();
+    </script>
 </body>
 </html>
